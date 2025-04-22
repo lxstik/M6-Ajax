@@ -60,8 +60,15 @@ const nombre = fetch("https://pokeapi.co/api/v2//pokemon/12")
     })
 
 
+    let smash = 0;
+    let pass = 0;
     let currentId = 1;
-
+    
+    function updateCounters() {
+      document.getElementById('smash-count').textContent = smash;
+      document.getElementById('pass-count').textContent = pass;
+    }
+    
     function devolveTarjeta(id) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
         .then(respuesta => respuesta.json())
@@ -73,20 +80,23 @@ const nombre = fetch("https://pokeapi.co/api/v2//pokemon/12")
         .catch(error => console.error('Error al obtener el Pokémon:', error));
     }
     
-    document.getElementById('prev-btn').addEventListener('click', () => {
-      if (currentId > 1) {
-        currentId--;
-        devolveTarjeta(currentId);
-      }
-    });
-    
-    document.getElementById('next-btn').addEventListener('click', () => {
+    document.getElementById('pass-btn').addEventListener('click', () => {
+      pass++;
+      updateCounters();
       currentId++;
       devolveTarjeta(currentId);
     });
     
-    // Tarjeta principal: carga inicial
+    document.getElementById('smash-btn').addEventListener('click', () => {
+      smash++;
+      updateCounters();
+      currentId++;
+      devolveTarjeta(currentId);
+    });
+    
+    // Cargar el primer Pokémon al iniciar
     devolveTarjeta(currentId);
+    
     
     // Tarjeta de favorito
     function pokemonFavorito1() {

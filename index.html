@@ -9,20 +9,31 @@
 </head>
 
 <body>
-    
-    <div class="container mt-5 text-center">
-        <div class="card mx-auto" style="width: 18rem;" id="pokemon-card">
-            <img src="" class="card-img-top" alt="Imagen de Pokémon" id="main-pokemon-img">
-            <div class="card-body">
-                <h5 class="card-title" id="main-pokemon-name">Nombre del Pokémon</h5>
-                <p class="card-text" id="main-pokemon-weight">Peso del Pokémon</p>
-                <div class="d-flex justify-content-between mt-3">
-                    <button class="btn btn-outline-primary" id="prev-btn">⬅️</button>
-                    <button class="btn btn-outline-primary" id="next-btn">➡️</button>
-                </div>
-            </div>
+    <div class="sma-pa d-flex justify-content-around text-center my-4">
+        <div class="pass">
+          <h2>Pass</h2>
+          <h1 class="numberPass" id="pass-count">0</h1>
         </div>
-    </div>
+        <div class="smash">
+            <h2>Smash</h2>
+            <h1 class="numberSmash" id="smash-count">0</h1>
+          </div>
+      </div>
+      
+      <div class="container mt-5 text-center">
+        <div class="card mx-auto" style="width: 18rem;" id="pokemon-card">
+          <img src="" class="card-img-top" alt="Imagen de Pokémon" id="main-pokemon-img">
+          <div class="card-body">
+            <h5 class="card-title" id="main-pokemon-name">Nombre del Pokémon</h5>
+            <p class="card-text" id="main-pokemon-weight">Peso del Pokémon</p>
+            <div class="d-flex justify-content-between mt-3">
+              <button class="btn btn-outline-secondary" id="pass-btn">Pass</button>
+              <button class="btn btn-outline-success" id="smash-btn">Smash</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
 
     <div class="container mt-5" style="padding-bottom: 50px;">
         <h1 class="text-center mb-4">Mis favoritos:</h1>
