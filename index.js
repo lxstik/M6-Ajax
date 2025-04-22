@@ -59,3 +59,30 @@ const nombre = fetch("https://pokeapi.co/api/v2//pokemon/12")
         return datos.name
     })
 
+
+    let currentId = 1;
+
+    function devolveTarjeta(id) {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+          document.getElementById('pokemon-name').textContent = datos.name;
+          document.getElementById('pokemon-img').src = datos.sprites.front_default;
+          document.getElementById('pokemon-weight').textContent = "Peso: " + datos.weight + " kg";
+        })
+    }
+
+    document.getElementById('prev-btn').addEventListener('click', () => {
+      if (currentId > 1) {
+        currentId--;
+        devolveTarjeta(currentId);
+      }
+    });
+
+    document.getElementById('next-btn').addEventListener('click', () => {
+      currentId++;
+      devolveTarjeta(currentId);
+    });
+
+    // Llamar la función inicial
+    devolveTarjeta(currentId);
