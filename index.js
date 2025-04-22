@@ -66,23 +66,62 @@ const nombre = fetch("https://pokeapi.co/api/v2//pokemon/12")
       fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
         .then(respuesta => respuesta.json())
         .then(datos => {
-          document.getElementById('pokemon-name').textContent = datos.name;
-          document.getElementById('pokemon-img').src = datos.sprites.front_default;
-          document.getElementById('pokemon-weight').textContent = "Peso: " + datos.weight + " kg";
+          document.getElementById('main-pokemon-name').textContent = datos.name.toUpperCase();
+          document.getElementById('main-pokemon-img').src = datos.sprites.front_default;
+          document.getElementById('main-pokemon-weight').textContent = "Peso: " + datos.weight + " kg";
         })
+        .catch(error => console.error('Error al obtener el Pokémon:', error));
     }
-
+    
     document.getElementById('prev-btn').addEventListener('click', () => {
       if (currentId > 1) {
         currentId--;
         devolveTarjeta(currentId);
       }
     });
-
+    
     document.getElementById('next-btn').addEventListener('click', () => {
       currentId++;
       devolveTarjeta(currentId);
     });
-
-    // Llamar la función inicial
+    
+    // Tarjeta principal: carga inicial
     devolveTarjeta(currentId);
+    
+    // Tarjeta de favorito
+    function pokemonFavorito1() {
+      fetch('https://pokeapi.co/api/v2/pokemon/104')
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+          document.getElementById('fav-pokemon1-name').textContent = datos.name.toUpperCase();
+          document.getElementById('fav-pokemon1-img').src = datos.sprites.front_default;
+          document.getElementById('fav-pokemon1-weight').textContent = "Peso: " + datos.weight + " kg";
+        })
+    }
+    
+    pokemonFavorito1();
+
+    function pokemonFavorito2() {
+        fetch('https://pokeapi.co/api/v2/pokemon/196')
+          .then(respuesta => respuesta.json())
+          .then(datos => {
+            document.getElementById('fav-pokemon2-name').textContent = datos.name.toUpperCase();
+            document.getElementById('fav-pokemon2-img').src = datos.sprites.front_default;
+            document.getElementById('fav-pokemon2-weight').textContent = "Peso: " + datos.weight + " kg";
+          })
+      }
+      
+      pokemonFavorito2();
+
+      function pokemonFavorito3() {
+        fetch('https://pokeapi.co/api/v2/pokemon/38')
+          .then(respuesta => respuesta.json())
+          .then(datos => {
+            document.getElementById('fav-pokemon3-name').textContent = datos.name.toUpperCase();
+            document.getElementById('fav-pokemon3-img').src = datos.sprites.front_default;
+            document.getElementById('fav-pokemon3-weight').textContent = "Peso: " + datos.weight + " kg";
+          })
+      }
+      
+      pokemonFavorito3();
+    
